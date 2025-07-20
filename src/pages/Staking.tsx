@@ -12,13 +12,6 @@ interface StakingInfo {
   rewards: string;
 }
 
-interface StakingEvent {
-  user: string;
-  amount: string;
-  timestamp: string;
-  blockNumber: number;
-}
-
 const Staking: React.FC = () => {
   const { address, isConnected } = useAccount();
   
@@ -29,7 +22,6 @@ const Staking: React.FC = () => {
   const [pendingRewards, setPendingRewards] = useState<string>('0');
   const [rewardRate, setRewardRate] = useState<string>('0');
   const [tokenBalance, setTokenBalance] = useState<string>('0');
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   // 스테이킹 컨트랙트 주소
@@ -104,20 +96,20 @@ const Staking: React.FC = () => {
   }, [userStake]);
 
   useEffect(() => {
-    if (pendingRewardsData !== undefined) {
-      setPendingRewards(formatEther(pendingRewardsData));
+    if (pendingRewardsData !== undefined && pendingRewardsData !== null) {
+      setPendingRewards(formatEther(pendingRewardsData as bigint));
     }
   }, [pendingRewardsData]);
 
   useEffect(() => {
-    if (rewardRateData !== undefined) {
-      setRewardRate(formatUnits(rewardRateData, 18));
+    if (rewardRateData !== undefined && rewardRateData !== null) {
+      setRewardRate(formatUnits(rewardRateData as bigint, 18));
     }
   }, [rewardRateData]);
 
   useEffect(() => {
-    if (tokenBalanceData !== undefined) {
-      setTokenBalance(formatEther(tokenBalanceData));
+    if (tokenBalanceData !== undefined && tokenBalanceData !== null) {
+      setTokenBalance(formatEther(tokenBalanceData as bigint));
     }
   }, [tokenBalanceData]);
 
