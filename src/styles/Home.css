@@ -1,0 +1,270 @@
+/* 홈 페이지 메인 컨테이너 */
+.home-welcome-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.home-welcome-title {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.home-welcome-text {
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+}
+
+/* 지갑 연결 상태 */
+.wallet-connected {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.wallet-connected-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.wallet-connected-info {
+  margin: 0;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.wallet-address {
+  margin: 8px 0 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.disconnect-button {
+  padding: 12px 24px;
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.disconnect-button:hover {
+  background: rgba(192, 57, 43, 0.9);
+  transform: translateY(-2px);
+}
+
+.wallet-not-connected {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.wallet-not-connected-text {
+  margin: 0 0 20px 0;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.connect-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.connect-button {
+  padding: 14px 28px;
+  background: rgba(52, 152, 219, 0.9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.connect-button:hover {
+  background: rgba(41, 128, 185, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.connect-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* 기능 카드 그리드 */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.feature-card.staking {
+  border-top: 4px solid #3498db;
+}
+
+.feature-card.staking::before {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.feature-title {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.feature-description {
+  color: #7f8c8d;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.feature-link {
+  display: inline-block;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.feature-link.staking {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.feature-link.staking:hover {
+  background: linear-gradient(135deg, #2980b9, #1f5f8b);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .home-welcome-card {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .home-welcome-title {
+    font-size: 1.6rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 25px;
+  }
+  
+  .wallet-connected-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .connect-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-welcome-card {
+    padding: 20px;
+  }
+  
+  .home-welcome-title {
+    font-size: 1.4rem;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .connect-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
