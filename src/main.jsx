@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import App from './App'
 
 import { WagmiProvider } from 'wagmi';
-import { config } from './wagmi.ts'; // 2단계에서 만든 설정 파일
+import { config } from './wagmi.ts';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -21,4 +21,4 @@ ReactDOM.createRoot(rootElement).render(
       </QueryClientProvider>
     </WagmiProvider>
   </React.StrictMode>
-);
+); 

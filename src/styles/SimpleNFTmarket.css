@@ -1,7 +1,7 @@
 /* Simple NFT Market Main Layout */
 .nftmarket-container {
-  padding: 32px 24px;
-  background: #181c24;
+  /* padding: 32px 24px; */
+  /* background: #181c24; */
   min-height: 100vh;
   color: #f5f6fa;
   display: flex;
@@ -9,6 +9,10 @@
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.main-content {
+  background: #181c24;
 }
 
 /* Header Section */

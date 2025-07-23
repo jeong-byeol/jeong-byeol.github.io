@@ -3,7 +3,7 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import '../styles/Layout.css';
 import '../styles/Home.css';
 
-const Home: React.FC = () => {
+const Home = () => {
   const { address, isConnected } = useAccount();
   const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();

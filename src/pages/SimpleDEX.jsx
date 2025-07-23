@@ -4,30 +4,25 @@ import { ethers } from 'ethers';
 import simpleDexAbi from '../abis/SimpleDEX.json';
 import '../styles/SimpleDEX.css';
 
-// TODO: Fill in your deployed contract addresses
 const SIMPLEDEX_ADDRESS = '0x33d89348E9547662840A035d26930EE37c6741d0';
 const KOW = "0x6b797dC9D340bf09A77Fb54075530c5fb6bdF699";
 const SOW = "0x59dF7b4D7cf172Aa5be3b524D4ac2616d7097a78";
 
-const SimpleDEX: React.FC = () => {
+const SimpleDEX = () => {
   const { address, isConnected } = useAccount();
 
-  const [dexContract, setDexContract] = useState<any>(null);
-  const [Contract, setContract] = useState<any>(null);
-  const [KOWaddress, setKOWaddress] = useState<any>(null);
-  const [SOWaddress, setSOWaddress] = useState<any>(null);
-// 예치된 금액
-  const [balance, setBalance] = useState<any>(null);
-// 입출금
-  const [amount, setAmount] = useState<any>("");
-  //수수료 설정
-  const [fee, setFee] = useState<any>("");
+  const [dexContract, setDexContract] = useState(null);
+  const [Contract, setContract] = useState(null);
+  const [KOWaddress, setKOWaddress] = useState(null);
+  const [SOWaddress, setSOWaddress] = useState(null);
+  const [balance, setBalance] = useState(null);
+  const [amount, setAmount] = useState("");
+  const [fee, setFee] = useState("");
 
-  // Initialize provider and contract
   useEffect(() => {
     if (window.ethereum && isConnected) {
       const web3Provider = new ethers.BrowserProvider(window.ethereum);
-      web3Provider.getSigner().then((signer: any) => {
+      web3Provider.getSigner().then((signer) => {
         setDexContract(new ethers.Contract(SIMPLEDEX_ADDRESS, simpleDexAbi, signer));
         setContract(SIMPLEDEX_ADDRESS);
         setKOWaddress(KOW);
@@ -35,7 +30,7 @@ const SimpleDEX: React.FC = () => {
       });
     }
   }, [isConnected]);
- //잔액 조회
+
   useEffect(() => {
     if (Contract && address) {
       const fetchBalance = async () => {
@@ -46,7 +41,6 @@ const SimpleDEX: React.FC = () => {
     }
   });
 
-  //토큰 추가
   const addsupToken = async () => {
     try {
       const tx = await dexContract.addSupportedToken(KOWaddress);
@@ -60,7 +54,6 @@ const SimpleDEX: React.FC = () => {
     }
   }
 
-  //교환 비율 설정(1SOW -> 100KOW)
   const ExchangeRate = async () => {
     try {
       const tx = await dexContract.setExchangeRate(SOWaddress, KOWaddress, 100);
@@ -72,7 +65,6 @@ const SimpleDEX: React.FC = () => {
     }
   }
 
-  //수수료 설정
   const setFeeRate = async () => {
     try {
       const tx = await dexContract.setFeeRate(fee);
@@ -84,7 +76,6 @@ const SimpleDEX: React.FC = () => {
     }
   }
 
-  //수수료 출금
   const withdrawFee = async () => {
     try {
       const tx = await dexContract.withdrawFee(KOWaddress);
@@ -95,7 +86,7 @@ const SimpleDEX: React.FC = () => {
       alert('수수료 출금 실패');
     }
   }
-  //관리자가 컨트랙트에 KOW예치
+
   const depositKOW = async () => {
     try {
       const tx = await dexContract.deposit(KOWaddress, amount);
@@ -107,7 +98,6 @@ const SimpleDEX: React.FC = () => {
     }
   }
 
-// 입금
   const deposit = async () => {
     try {
       const tx = await dexContract.deposit(SOWaddress, amount);
@@ -118,7 +108,7 @@ const SimpleDEX: React.FC = () => {
       alert('입금 실패');
     }
   }
-// 출금
+
   const withdraw = async () => {
     try {
       const tx = await dexContract.withdraw(SOWaddress, amount);
@@ -130,7 +120,6 @@ const SimpleDEX: React.FC = () => {
     }
   }
 
-  //교환(SOW -> KOW)
   const swap = async () => {
     try {
       const tx = await dexContract.swap(SOWaddress, KOWaddress, amount);
@@ -141,7 +130,7 @@ const SimpleDEX: React.FC = () => {
       alert('교환 실패');
     }
   }
-  //교환(KOW -> SOW)
+
   const swapKOW = async () => {
     try {
       const tx = await dexContract.swap(KOWaddress, SOWaddress, amount);
@@ -188,4 +177,4 @@ const SimpleDEX: React.FC = () => {
   );
 };
 
-export default SimpleDEX;
+export default SimpleDEX; 

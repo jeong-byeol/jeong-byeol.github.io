@@ -3,7 +3,7 @@ import { useAccount } from 'wagmi';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Layout.css';
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
   const { address, isConnected } = useAccount();
   const location = useLocation();
 
