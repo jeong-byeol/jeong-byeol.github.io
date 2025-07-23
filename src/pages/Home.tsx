@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { Link } from 'react-router-dom';
 import '../styles/Layout.css';
 import '../styles/Home.css';
 
@@ -71,18 +70,6 @@ const Home: React.FC = () => {
               </div>
           </div>
         )}
-      </div>
-
-      <div className="feature-grid">
-        <div className="feature-card staking">
-          <h4 className="feature-title">💰 스테이킹</h4>
-          <p className="feature-description">
-            토큰을 스테이킹하여 안정적인 수익을 창출하세요.
-          </p>
-          <Link to="/staking" className="feature-link staking">
-            스테이킹 시작하기
-          </Link>
-        </div>
       </div>
     </div>
   );

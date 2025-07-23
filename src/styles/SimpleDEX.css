@@ -1,0 +1,233 @@
+/* SimpleDEX Main Layout */
+.simpledex-container {
+  padding: 32px 24px;
+  background: #181c24;
+  min-height: 100vh;
+  color: #f5f6fa;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.simpledex-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.simpledex-header h1 {
+  color: #7ed6df;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.simpledex-header h2 {
+  color: #f5f6fa;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.simpledex-header p {
+  color: #ffeaa7;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Balance Section */
+.balance-section {
+  background: #23283a;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #2d3347;
+  text-align: center;
+}
+
+.balance-section h2 {
+  color: #7ed6df;
+  margin-bottom: 12px;
+}
+
+.balance-section p {
+  color: #ffeaa7;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Action Sections */
+.action-section {
+  background: #23283a;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #2d3347;
+}
+
+.action-section h2 {
+  color: #7ed6df;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+}
+
+/* Input and Button Styles */
+.action-section input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #2d3347;
+  background: #1a1e29;
+  color: #f5f6fa;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.action-section input[type="text"]:focus {
+  outline: 2px solid #7ed6df;
+  border-color: #7ed6df;
+}
+
+.action-section input[type="text"]::placeholder {
+  color: #6c7b7f;
+}
+
+/* Button Styles */
+.action-section button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #7ed6df;
+  color: #23283a;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 12px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.action-section button:hover {
+  background: #22a6b3;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(126, 214, 223, 0.3);
+}
+
+.action-section button:active {
+  transform: translateY(0);
+}
+
+/* Admin Section */
+.admin-section {
+  background: #23283a;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #2d3347;
+}
+
+.admin-section h2 {
+  color: #e17055;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+}
+
+.admin-section input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #2d3347;
+  background: #1a1e29;
+  color: #f5f6fa;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.admin-section button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #e17055;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 12px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.admin-section button:hover {
+  background: #d63031;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(225, 112, 85, 0.3);
+}
+
+/* Swap Section */
+.swap-section {
+  background: #23283a;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #2d3347;
+}
+
+.swap-section h2 {
+  color: #7ed6df;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+}
+
+.swap-section button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #00b894;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 12px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.swap-section button:hover {
+  background: #00a085;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .simpledex-container {
+    padding: 16px 12px;
+    max-width: 100%;
+  }
+  
+  .action-section button,
+  .admin-section button,
+  .swap-section button {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .simpledex-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .simpledex-container {
+    padding: 12px 8px;
+  }
+  
+  .action-section,
+  .admin-section,
+  .swap-section,
+  .balance-section {
+    padding: 16px;
+  }
+}

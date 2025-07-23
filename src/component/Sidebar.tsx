@@ -8,8 +8,9 @@ const Sidebar: React.FC = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: '홈', icon: '🏠' },
-    { path: '/staking', label: '스테이킹', icon: '💰' },
+    { path: '/', label: '홈' },
+    { path: '/simpledex', label: 'SimpleDEX' },
+    { path: '/nftmarket', label: 'NFTmarket' },
   ];
 
   return (
@@ -26,9 +27,6 @@ const Sidebar: React.FC = () => {
                 to={item.path} 
                 className={location.pathname === item.path ? 'active' : ''}
               >
-                <span style={{ marginRight: '12px', fontSize: '1.1rem' }}>
-                  {item.icon}
-                </span>
                 {item.label}
               </Link>
             </li>

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './component/Sidebar';
 import Home from './pages/Home';
-import Staking from './pages/Staking';
+import SimpleDEX from './pages/SimpleDEX';
+import SimpleNFTmarket from './pages/SimpleNFTmarket';
 import './App.css';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/staking" element={<Staking />} />
+          <Route path="/simpledex" element={<SimpleDEX />} />
+          <Route path="/nftmarket" element={<SimpleNFTmarket />} />
         </Routes>
       </div>
     </Router>
