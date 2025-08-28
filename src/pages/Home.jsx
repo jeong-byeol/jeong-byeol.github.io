@@ -2,6 +2,7 @@ import React from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import '../styles/Layout.css';
 import '../styles/Home.css';
+import Comments from '../component/Comments';
 
 const Home = () => {
   const { address, isConnected } = useAccount();
@@ -71,6 +72,7 @@ const Home = () => {
           </div>
         )}
       </div>
+      <Comments />
     </div>
   );
 };
