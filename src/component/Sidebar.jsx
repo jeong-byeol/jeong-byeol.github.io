@@ -14,18 +14,18 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="sidebar">
+    <div className="sidebar animate-slide-in-left">
       <div className="sidebar-header">
-        <h1>🚀 Web3 블로그</h1>
+        <h1 className="animate-fade-in-scale animate-delay-200">🚀 Web3 블로그</h1>
       </div>
       
       <nav>
-        <ul className="nav-menu">
-          {navItems.map((item) => (
+        <ul className="nav-menu stagger-children">
+          {navItems.map((item, index) => (
             <li key={item.path}>
               <Link 
                 to={item.path} 
-                className={location.pathname === item.path ? 'active' : ''}
+                className={`hover-lift ${location.pathname === item.path ? 'active' : ''}`}
               >
                 {item.label}
               </Link>
@@ -34,20 +34,20 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      <div className="user-info">
+      <div className="user-info animate-fade-in-up animate-delay-500">
         <h4>지갑 상태</h4>
         {isConnected ? (
           <>
-            <div style={{ marginBottom: '8px', fontSize: '0.8rem', color: '#bdc3c7' }}>
-              ✅ 연결됨
+            <div style={{ marginBottom: '12px', fontSize: '0.85rem', color: 'var(--success-color)', fontWeight: '600' }}>
+              <span className="animate-pulse">✅</span> 연결됨
             </div>
-            <div className="user-address">
+            <div className="user-address hover-scale">
               {address?.slice(0, 6)}...{address?.slice(-4)}
             </div>
           </>
         ) : (
-          <div style={{ color: '#e74c3c', fontSize: '0.9rem' }}>
-            ⚠️ 지갑이 연결되지 않았습니다
+          <div style={{ color: 'var(--warning-color)', fontSize: '0.9rem', fontWeight: '600' }}>
+            <span className="animate-pulse">⚠️</span> 지갑이 연결되지 않았습니다
           </div>
         )}
       </div>

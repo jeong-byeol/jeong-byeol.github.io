@@ -14,12 +14,12 @@ const Home = () => {
   console.log('First connector:', connectors[0]);
 
   return (
-    <div className="main-content">
-      <div className="page-header">
-        <h2>홈</h2>
+    <div className="animate-fade-in">
+      <div className="page-header animate-fade-in-scale">
+        <h2>홈 🏠</h2>
       </div>
       
-      <div className="home-welcome-card">
+      <div className="home-welcome-card animate-fade-in-up animate-delay-200">
         <h3 className="home-welcome-title">
           Web3 블로그에 오신 것을 환영합니다! 🚀
         </h3>
@@ -30,11 +30,11 @@ const Home = () => {
         </p>
         
         {isConnected ? (
-          <div className="wallet-connected">
+          <div className="wallet-connected animate-fade-in-scale animate-delay-300">
             <div className="wallet-connected-content">
               <div>
                 <p className="wallet-connected-info">
-                  ✅ 지갑이 연결되었습니다
+                  <span className="animate-pulse">✅</span> 지갑이 연결되었습니다
                 </p>
                 <p className="wallet-address">
                   {address}
@@ -42,16 +42,16 @@ const Home = () => {
               </div>
               <button 
                 onClick={() => disconnect()}
-                className="disconnect-button"
+                className="disconnect-button hover-lift"
               >
                 연결 해제
               </button>
             </div>
           </div>
         ) : (
-          <div className="wallet-not-connected">
+          <div className="wallet-not-connected animate-fade-in-scale animate-delay-300">
             <p className="wallet-not-connected-text">
-              ⚠️ 지갑을 연결하여 모든 기능을 이용해보세요.
+              <span className="animate-pulse">⚠️</span> 지갑을 연결하여 모든 기능을 이용해보세요.
             </p>
               <div className="connect-buttons">
                 {connectors.length > 0 ? (
@@ -60,9 +60,16 @@ const Home = () => {
                       key={connector.uid}
                       onClick={() => connect({ connector })}
                       disabled={isPending}
-                      className="connect-button"
+                      className="connect-button hover-lift"
                     >
-                      {isPending ? '연결 중...' : `연결 ${connector.name}`}
+                      {isPending ? (
+                        <>
+                          <div className="loading-spinner"></div>
+                          연결 중...
+                        </>
+                      ) : (
+                        `🔗 연결 ${connector.name}`
+                      )}
                     </button>
                   ))
                 ) : (
@@ -72,7 +79,9 @@ const Home = () => {
           </div>
         )}
       </div>
-      <Comments />
+      <div className="animate-fade-in-up animate-delay-500">
+        <Comments />
+      </div>
     </div>
   );
 };
